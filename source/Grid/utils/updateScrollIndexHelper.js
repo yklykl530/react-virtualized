@@ -61,6 +61,7 @@ export default function updateScrollIndexHelper({
   size,
   sizeJustIncreasedFromZero,
   updateScrollIndexCallback,
+  updateScrollIndexHelperComparer
 }: Params) {
   const cellCount = cellSizeAndPositionManager.getCellCount();
   const hasScrollToIndex = scrollToIndex >= 0 && scrollToIndex < cellCount;
@@ -71,7 +72,6 @@ export default function updateScrollIndexHelper({
     (typeof cellSize === 'number' && cellSize !== previousCellSize);
 
   if (updateScrollIndexHelperComparer && updateScrollIndexHelperComparer() && scrollToIndex > -1) {
-    console.log('updateScrollIndexHelperComparer', scrollToIndex);
     updateScrollIndexCallback(scrollToIndex);
     return;
   }

@@ -700,6 +700,7 @@ class Grid extends React.PureComponent<Props, State> {
       onScrollToRowDidUpdate,
       onScrollToColumnWillUpdate,
       onScrollToColumnDidUpdate,
+      updateScrollIndexHelperComparer
     } = this.props;
     const {
       scrollLeft,
@@ -782,6 +783,7 @@ class Grid extends React.PureComponent<Props, State> {
         scrollToIndex: scrollToColumn,
         size: width,
         sizeJustIncreasedFromZero,
+        updateScrollIndexHelperComparer,
         updateScrollIndexCallback: () => {
           this._updateScrollLeftForScrollToColumn(this.props);
           this._nextTickScrollToColumn = scrollToColumn; // It will be reset the next time you render
@@ -808,6 +810,7 @@ class Grid extends React.PureComponent<Props, State> {
         scrollToIndex: scrollToRow,
         size: height,
         sizeJustIncreasedFromZero,
+        updateScrollIndexHelperComparer,
         updateScrollIndexCallback: () => {
           this._updateScrollTopForScrollToRow(this.props);
           this._nextTickScrollToRow = scrollToRow; // It will be reset the next time you render

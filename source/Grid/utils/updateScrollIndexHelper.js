@@ -70,6 +70,11 @@ export default function updateScrollIndexHelper({
     !previousCellSize ||
     (typeof cellSize === 'number' && cellSize !== previousCellSize);
 
+  if (updateScrollIndexHelperComparer && updateScrollIndexHelperComparer() && scrollToIndex > -1) {
+    console.log('updateScrollIndexHelperComparer', scrollToIndex);
+    updateScrollIndexCallback(scrollToIndex);
+    return;
+  }
   // If we have a new scroll target OR if height/row-height has changed,
   // We should ensure that the scroll target is visible.
   if (
